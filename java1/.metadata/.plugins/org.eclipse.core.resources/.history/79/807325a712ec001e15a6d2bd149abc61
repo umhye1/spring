@@ -1,0 +1,29 @@
+
+public class MyOOP {
+	public static void main(String[] args) {
+		delimeter="----";
+		printA();
+		printA();
+		printB();
+		printB();
+		
+		delimeter ="****";
+		printA();
+		printA();
+		printB();
+		printB();
+				
+	}
+	
+	public static String delimeter= "----";
+	public static void printA() {
+	System.out.println(delimeter);
+	System.out.println("A");
+	}
+	public static void printB() {
+		System.out.println(delimeter);
+		System.out.println("B");
+		}
+	
+
+}

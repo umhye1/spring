@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move type &apos;Print&apos; in &apos;MyOOP.java&apos; to new file&#x0A;- Original project: &apos;ProjectOOP&apos;&#x0A;- Original element: &apos;Print&apos;" description="Move type &apos;Print&apos; to new file" field="false" final="true" flags="786438" id="org.eclipse.jdt.ui.move.inner" input="/&lt;{MyOOP.java[Print" mandatory="false" possible="false" stamp="1711528413582" version="1.0"/>
+</session>

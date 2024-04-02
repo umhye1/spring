@@ -1,0 +1,17 @@
+//
+public class MyOOP{
+	public void main(String[] args) {
+		Print.delimeter ="----";
+		Print.A();
+		Print.A();
+		Print.B();
+		Print.B();
+		
+		Print.delimeter ="****";
+		Print.A();
+		Print.A();
+		Print.B();
+		Print.B();
+		
+	}
+}

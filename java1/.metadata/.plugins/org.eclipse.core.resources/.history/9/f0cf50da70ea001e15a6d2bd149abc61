@@ -1,0 +1,15 @@
+
+public class AuthApp2 {
+
+	public static void main(String[] args) {
+		
+		String[] users = {"sungcheol","seungwoo","jiyong"};
+		String inputId = args[0];
+		
+		for(int i =0; i<users.length; i++) {
+			System.out.println(users[i]);
+		}
+
+	}
+
+}

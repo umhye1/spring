@@ -1,0 +1,31 @@
+1710817282979	Delete element
+1710817317054	Delete element
+1710817640605	Move file
+1710817654744	Copy compilation unit
+1710817662836	Delete element
+1710819144685	Extract local variable 'valueOfSupply'
+1710819178799	Extract local variable 'vatRate'
+1710819372592	Extract local variable 'VAT'
+1710819411210	Extract local variable 'total'
+1710819486708	Extract local variable 'expense'
+1710819510684	Extract local variable 'income'
+1710819528733	Extract local variable 'dividend1'
+1710819539432	Extract local variable 'dividend2'
+1710819548494	Extract local variable 'dividend3'
+1710829580437	Copy file
+1710829611424	Copy compilation unit
+1710830637329	Copy file
+1710830656318	Delete element
+1710830668223	Copy file
+1710831603229	Copy compilation unit
+1710834604303	Copy compilation unit
+1710834814233	Extract method 'getVAT'
+1710835233014	Convert local variable 'vatRate' to field
+1710835392947	Extract method 'getTotal'
+1710835490833	Extract method 'getExpense'
+1710835500195	Extract method 'getIncome'
+1710835514391	Extract method 'getDividend1'
+1710835525783	Extract method 'getDividend2'
+1710835546570	Extract method 'getDividend3'
+1710835586134	Extract method 'print'
+1710901264796	Copy compilation unit
