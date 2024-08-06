@@ -2,15 +2,23 @@ package hello.core.order;
 
 
 import hello.core.discount.DiscountPolicy;
-import hello.core.discount.FixDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    //orderservice는 사용하는 필드가 두개임 - MemberRepository랑 DiscountPolicy
+    //생성자 이용해서 선언
+    //final -  무조건 생성자를 통해서 할당되어야함
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
+
+    //AppConfig에서 OrderServiceImpl에 MemoryMemberRepository, FixDiscountPolicy 할당함
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
 
     // OrderService 입장에서는 결과만 반환해달라고 설계
