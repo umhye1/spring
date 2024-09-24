@@ -4,36 +4,16 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
-import hello.core.member.MemoryMemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
-//    @Autowired
-//    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
-//        this.discountPolicy = discountPolicy;
-//    }
-//    @Autowired
-//    public void setMemberRepository(MemberRepository memberRepository) {
-//        this.memberRepository = memberRepository;
-//    }
-
-    //AppConfig에서 OrderServiceImpl에 MemoryMemberRepository, FixDiscountPolicy 할당함
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
-
-//    @Autowired
-//    public void init(MemberRepository memberRepository,DiscountPolicy discountPolicy){
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
 
     // OrderService 입장에서는 결과만 반환해달라고 설계
     // 단일 책임 원칙 잘 지킴
