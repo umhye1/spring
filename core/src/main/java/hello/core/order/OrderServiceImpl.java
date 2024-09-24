@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderServiceImpl implements OrderService{
 
-    @Autowired  private MemberRepository memberRepository;
-    @Autowired private DiscountPolicy discountPolicy;
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
 
 //    @Autowired
 //    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
@@ -29,11 +29,11 @@ public class OrderServiceImpl implements OrderService{
         this.discountPolicy = discountPolicy;
     }
 
-    @Autowired
-    public void init(MemberRepository memberRepository,DiscountPolicy discountPolicy){
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    @Autowired
+//    public void init(MemberRepository memberRepository,DiscountPolicy discountPolicy){
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
     // OrderService 입장에서는 결과만 반환해달라고 설계
     // 단일 책임 원칙 잘 지킴
