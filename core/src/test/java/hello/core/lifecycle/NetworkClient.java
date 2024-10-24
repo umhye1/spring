@@ -1,10 +1,7 @@
 package hello.core.lifecycle;
 
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
-
 //가짜 네트워크 클라이언트
-public class NetworkClient implements InitializingBean, DisposableBean { // 초기화 빈
+public class NetworkClient {
     private String url;
     public NetworkClient(){
         System.out.println("생성자 호출 , url = " + url);
@@ -29,14 +26,14 @@ public class NetworkClient implements InitializingBean, DisposableBean { // 초�
     }
 
     //의존 관계 주입 후 연결
-    @Override
-    public void afterPropertiesSet()throws Exception{
+    public void init(){
+        System.out.println("NetworkClient.init");
         connect();
         call("초기화 연결 메시지");
     }
 
-    @Override
-    public void destroy() throws Exception {
+    public void close(){
+        System.out.println("NetworkClient.close");
         disconnect();
     }
 }
