@@ -15,29 +15,22 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-            //비영속
-            Member member = new Member();
-            member.setId(101L);
-            member.setName("HelloJPA");
+            // 변경 감지
+            // 영속
+            Member member = em.find(Member.class, 150L);
+            member.setName("ZZZZZ");
 
-            //영속
-            Member findMember1 = em.find(Member.class, 101L);
-            Member findMember2 = em.find(Member.class, 101L);
-
-            //영속엔티티의 동일성 보장
-            System.out.println("result = "+ (findMember1 == findMember2));
-
-//            //영속
-//            System.out.println("=== BEFORE ===");
-//            em.persist(member); //1차 캐시에 저장됨
-//            System.out.println("=== AFTER ===");
+            System.out.println("========");
+            // 트랜잭션을 지원하는 쓰기 지연
+//            // 영속
+//            Member member1 = new Member(150L,"A");
+//            Member member2 = new Member(160L,"B");
 //
-//            Member findMember = em.find(Member.class, 101L);
-//            System.out.println("findMember.id = " + findMember.getId());
-//            System.out.println("findMember.name = " + findMember.getName());
-
-
-
+//            //영속성 컨텍스트에 쌓임
+//            em.persist(member1);
+//            em.persist(member2);
+//            System.out.println("============");
+//            //커밋하는 시점에 db로 날라감
             tx.commit();
         }catch (Exception e){
             tx.rollback();
