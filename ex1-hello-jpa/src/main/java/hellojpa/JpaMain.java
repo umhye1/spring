@@ -15,21 +15,13 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-            // 변경 감지
             // 영속
-            Member member = em.find(Member.class, 150L);
-            member.setName("ZZZZZ");
+            Member member = new Member(200L, "member200");
+            em.persist(member);
+            //플러시 - 영속성 컨텍스트의 변경내용을 데이터베이스에 반영
+            em.flush();
 
             System.out.println("========");
-            // 트랜잭션을 지원하는 쓰기 지연
-//            // 영속
-//            Member member1 = new Member(150L,"A");
-//            Member member2 = new Member(160L,"B");
-//
-//            //영속성 컨텍스트에 쌓임
-//            em.persist(member1);
-//            em.persist(member2);
-//            System.out.println("============");
 //            //커밋하는 시점에 db로 날라감
             tx.commit();
         }catch (Exception e){
