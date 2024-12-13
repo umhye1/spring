@@ -15,14 +15,24 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
+            // 준영속 상태 - detach
             // 영속
-            Member member = new Member(200L, "member200");
-            em.persist(member);
-            //플러시 - 영속성 컨텍스트의 변경내용을 데이터베이스에 반영
-            em.flush();
+//            Member member = em.find(Member.class, 150L);
+//            member.setName("AAAAA");
+//
+//            //영속성 컨텍스트에서 관리하지마! -> 준영속 상태
+//            em.detach(member);
+//            System.out.println("========");
 
+            // 준영속 상태 - clear
+            Member member = em.find(Member.class, 150L);
+            member.setName("AAAAA");
+
+            //영속성 컨텍스트에서 관리하지마! -> 준영속 상태  ,1차 캐쉬 없음
+            em.clear();
+            Member member2 = em.find(Member.class, 150L);
             System.out.println("========");
-//            //커밋하는 시점에 db로 날라감
+
             tx.commit();
         }catch (Exception e){
             tx.rollback();
