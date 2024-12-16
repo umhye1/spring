@@ -9,21 +9,19 @@ import java.util.List;
 public class JpaMain {
     public static void main(String[] args){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
-
         EntityManager em = emf.createEntityManager();
-
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
             Member member = new Member();
-            member.setId(2L);
-            member.setUsername("B");
-            member.setRoleType(RoleType.ADMIN);
-
+            member.setUsername("C");
+            System.out.println(" ========");
             em.persist(member);
+            System.out.println(" ========");
 
             tx.commit();
         }catch (Exception e){
+//            e.printStackTrace();
             tx.rollback();
         }finally {
             em.close();
