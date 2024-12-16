@@ -15,23 +15,12 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-            // 준영속 상태 - detach
-            // 영속
-//            Member member = em.find(Member.class, 150L);
-//            member.setName("AAAAA");
-//
-//            //영속성 컨텍스트에서 관리하지마! -> 준영속 상태
-//            em.detach(member);
-//            System.out.println("========");
+            Member member = new Member();
+            member.setId(2L);
+            member.setUsername("B");
+            member.setRoleType(RoleType.ADMIN);
 
-            // 준영속 상태 - clear
-            Member member = em.find(Member.class, 150L);
-            member.setName("AAAAA");
-
-            //영속성 컨텍스트에서 관리하지마! -> 준영속 상태  ,1차 캐쉬 없음
-            em.clear();
-            Member member2 = em.find(Member.class, 150L);
-            System.out.println("========");
+            em.persist(member);
 
             tx.commit();
         }catch (Exception e){
