@@ -18,9 +18,10 @@ public class Member {
    @Column(name = "USERNAME")
    private String username;
 
-    @ManyToOne //(n:1)
-    @JoinColumn(name = "TEAM_ID") //외래키 매핑
-    private Team team;
+   @ManyToOne
+   @JoinColumn(name  = "TEAM_ID" ,insertable = false, updatable = false) // 읽기 전용 필드
+   private Team team;
+
 
     public Long getId() {   return id;  }
 
@@ -30,16 +31,4 @@ public class Member {
 
     public void setUsername(String username) {  this.username = username;   }
 
-    public Team getTeam() { return team;    }
-
-    public void setTeam(Team team) {    this.team = team;   }
-
-    @Override
-    public String toString() {
-        return "Member{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", team=" + team +
-                '}';
-    }
 }

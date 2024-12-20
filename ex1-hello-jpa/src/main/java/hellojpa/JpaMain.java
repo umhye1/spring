@@ -13,27 +13,18 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-
-            Team team = new Team();
-            team.setName("TeamA");
-            em.persist(team);
-
             Member member = new Member();
             member.setUsername("member1");
+
             em.persist(member);
 
-            team.addMember(member);
+            Team team = new Team();
+            team.setName("team1");
+            //team 테이블에 x. member 테이블에 업데이트
+            team.getMembers().add(member);
 
-            em.flush();
-            em.clear();
+            em.persist(team); // 외래키 업데이트
 
-            Team findTeam = em.find(Team.class, team.getId());
-            List<Member> members = findTeam.getMembers();
-
-            for (Member m : members) {
-                System.out.println("m  = " + m.getUsername() );
-                
-            }
             tx.commit();
         }catch (Exception e){
             tx.rollback();
