@@ -18,36 +18,21 @@ public class Member {
    @Column(name = "USERNAME")
    private String username;
 
-//   @Column(name = "TEAM_ID")
-//   private Long teamId;
-
-    @ManyToOne //(1:n)
+    @ManyToOne //(n:1)
     @JoinColumn(name = "TEAM_ID") //외래키 매핑
     private Team team;
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() {   return id;  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public void setId(Long id) {    this.id = id;   }
 
-    public String getUsername() {
-        return username;
-    }
+    public String getUsername() {   return username;    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public void setUsername(String username) {  this.username = username;   }
 
-    public Team getTeam() {
-        return team;
-    }
+    public Team getTeam() { return team;    }
 
-    public void setTeam(Team team) {
-        this.team = team;
-    }
+    public void setTeam(Team team) {    this.team = team;   }
 
     @Override
     public String toString() {
