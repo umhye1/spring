@@ -17,6 +17,7 @@ public class JpaMain {
         tx.begin();
         try {
             Order order = new Order();
+            em.persist(order);
 //            order.addOrderItem(new OrderItem());
 
             OrderItem orderItem = new OrderItem();

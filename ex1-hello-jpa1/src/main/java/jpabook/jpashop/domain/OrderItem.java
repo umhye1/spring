@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class OrderItem {
 
-    @Id@GeneratedValue
+    @Id @GeneratedValue
     @Column(name = "ORDER_ITEM_ID")
     private Long id;
 
@@ -17,7 +17,7 @@ public class OrderItem {
     @JoinColumn(name = "ITEM_ID")
     private Item item;
 
-    private int OrderPrice;
+    private int orderPrice;
     private int count;
 
     public Long getId() {
@@ -45,11 +45,11 @@ public class OrderItem {
     }
 
     public int getOrderPrice() {
-        return OrderPrice;
+        return orderPrice;
     }
 
     public void setOrderPrice(int orderPrice) {
-        OrderPrice = orderPrice;
+        this.orderPrice = orderPrice;
     }
 
     public int getCount() {
