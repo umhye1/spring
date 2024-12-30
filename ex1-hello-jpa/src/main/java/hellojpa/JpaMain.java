@@ -13,17 +13,18 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-            Member member = new Member();
-            member.setUsername("member1");
+            Movie movie = new Movie();
+            movie.setDirector("aaaa");
+            movie.setActor("bbbb");
+            movie.setName("바람과함께사라지다");
+            movie.setPrice(10000);
 
-            em.persist(member);
+            em.persist(movie);
+            em.flush();
+            em.clear(); // 1차 캐쉬 없음
 
-            Team team = new Team();
-            team.setName("team1");
-            //team 테이블에 x. member 테이블에 업데이트
-            team.getMembers().add(member);
-
-            em.persist(team); // 외래키 업데이트
+            Movie findMovie = em.find(Movie.class, movie.getId());
+            System.out.println("findMovie = " + findMovie);
 
             tx.commit();
         }catch (Exception e){
