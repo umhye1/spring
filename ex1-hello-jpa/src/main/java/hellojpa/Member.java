@@ -1,14 +1,15 @@
 package hellojpa;
 
+import org.dom4j.tree.AbstractEntity;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@TableGenerator(
-        name = "MEMBER_SEQ_GENERATOR",
-        table = "MY_SEQUENCES",
-        pkColumnValue = "MEMBER_SEQ", allocationSize = 1)
-public class Member {
+public class Member extends BaseEntity{
 
     @Id
     @GeneratedValue
@@ -25,6 +26,9 @@ public class Member {
     @OneToOne
     @JoinColumn(name = "Locker_ID")
     private Locker locker;
+
+    @OneToMany(mappedBy = "member")
+    private List<MemberProduct> memberProducts = new ArrayList<>();
 
 
     public Long getId() {   return id;  }
