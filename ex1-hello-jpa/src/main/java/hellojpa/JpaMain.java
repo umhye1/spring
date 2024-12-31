@@ -14,14 +14,19 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-            Member member = new Member();
-            member.setCreatedBy("Kim");
-            member.setUsername("user1");
-            member.setCreatedDate(LocalDateTime.now());
+            Member member1 = new Member();
+            member1.setUsername("Member1");
 
-            em.persist(member);
+            em.persist(member1);
+
             em.flush();
-            em.clear(); // 1차 캐쉬 없음
+            em.clear();
+            //
+            Member refMember = em.getReference(Member.class, member1.getId());
+            System.out.println("refMember = " + refMember.getClass()); //proxy
+
+            refMember.getUsername();
+            System.out.println("isLoaded = " + emf.getPersistenceUnitUtil().isLoaded(refMember));
 
             tx.commit();
         }catch (Exception e){
@@ -30,5 +35,17 @@ public class JpaMain {
             em.close();
         }
         emf.close();
+    }
+
+    private static void printMember(Member member) {
+        System.out.println("member = " + member.getUsername());
+    }
+
+    private static void printMemberAndTeam(Member member) {
+        String username = member.getUsername();
+        System.out.println("username = " + username);
+
+        Team team = member.getTeam();
+        System.out.println("team.getName() = " + team.getName());
     }
 }
