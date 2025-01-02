@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19c668e5-fdf8-42cb-9697-61cf84c19a58" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Album.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/BaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../core/src/main/java/hello/core/common/MyLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/../core/src/main/java/hello/core/common/MyLogger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/JpaMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Category.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Delivery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Delivery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/OrderItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../jpashop/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../jpashop/.gitignore" afterDir="false" />
@@ -106,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1734365296482</updated>
-      <workItem from="1734365297534" duration="16846000" />
+      <workItem from="1734365297534" duration="19754000" />
     </task>
     <servers />
   </component>
