@@ -14,19 +14,26 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
+
+            Team team = new Team();
+            team.setName("team1");
+            em.persist(team);
+
             Member member1 = new Member();
             member1.setUsername("Member1");
-
+            member1.setTeam(team);
             em.persist(member1);
-
+            
             em.flush();
             em.clear();
-            //
-            Member refMember = em.getReference(Member.class, member1.getId());
-            System.out.println("refMember = " + refMember.getClass()); //proxy
 
-            refMember.getUsername();
-            System.out.println("isLoaded = " + emf.getPersistenceUnitUtil().isLoaded(refMember));
+//            Member m = em.find(Member.class,member1.getId());
+//            System.out.println("m.getTeam().getClass() = " + m.getTeam().getClass());
+//
+//            System.out.println("=====");
+//            m.getTeam().getName(); // 초기화
+//            System.out.println("=====");
+            List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
 
             tx.commit();
         }catch (Exception e){
