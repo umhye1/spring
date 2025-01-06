@@ -23,13 +23,6 @@ public class Member extends BaseEntity{
     @Embedded //생략 가능
     private Address homeAddress;
 
-    @Embedded //생략 가능
-    @AttributeOverrides({ // 컬럼 명 속성 재정의
-            @AttributeOverride(name = "city", column = @Column(name ="WORK_CITY")),
-            @AttributeOverride(name = "street", column = @Column(name ="WORK_STREET")),
-            @AttributeOverride(name = "zipcode", column = @Column(name ="WORK_ZIPCODE"))
-    })
-    private Address workAddress;
 
     public Long getId() {
         return id;
