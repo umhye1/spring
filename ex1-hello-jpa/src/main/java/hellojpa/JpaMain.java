@@ -6,6 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 public class JpaMain {
     public static void main(String[] args){
@@ -15,16 +16,53 @@ public class JpaMain {
         tx.begin();
         try {
 
-            Address address = new Address("city", "street", "1000");
-
             Member member = new Member();
             member.setUsername("member1");
-            member.setHomeAddress(address);
+            member.setHomeAddress(new Address("homeCity","street","10000"));
+
+            member.getFavoriteFoods().add("치킨");
+            member.getFavoriteFoods().add("족발");
+            member.getFavoriteFoods().add("피자");
+
+//            member.getAddressHistory().add(new Address("old1","street","10000"));
+//            member.getAddressHistory().add(new Address("old2","street","10000"));
+
+            // entity이용
+            member.getAddressHistory().add(new AddressEntity("old3","street","10000"));
+            member.getAddressHistory().add(new AddressEntity("old4","street","10000"));
+
             em.persist(member);
 
-            Address newAddress = new Address("NewCity", address.getStreet(), address.getZipcode());
+            em.flush();
+            em.clear();
 
-            member.setHomeAddress(newAddress);
+//            System.out.println("====== 값 타입 조회 ====");
+            Member findMember = em.find(Member.class, member.getId());
+//
+//            List<Address> addressHistory = findMember.getAddressHistory();
+//            for (Address address : addressHistory) {
+//                System.out.println("address.getCity() = " + address.getCity());
+//            }
+//
+//            Set<String> favoriteFoods = findMember.getFavoriteFoods();
+//            for (String favoriteFood : favoriteFoods) {
+//                System.out.println("favoriteFood = " + favoriteFood);
+//            }
+
+            System.out.println("====== 값 타입 수정 ====");
+            // 값 타입은 수정하려면 새로 넣어야함
+            Address a = findMember.getHomeAddress();
+            findMember.setHomeAddress(new Address("newCity", a.getStreet(), a.getZipcode()));
+
+            System.out.println("====== 값 타입 컬렉션 업데이트 ====");
+
+            //collection 안에 있는 치킨 -> 한식 . update 안됨
+            findMember.getFavoriteFoods().remove("치킨");
+            findMember.getFavoriteFoods().add("한식");
+
+            // 주소 변경
+//            findMember.getAddressHistory().remove(new Address("old1", "street", "10000"));
+//            findMember.getAddressHistory().add(new Address("newCity1", "street", "10000"));
 
             tx.commit();
         }catch (Exception e){
