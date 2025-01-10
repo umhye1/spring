@@ -5,12 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19c668e5-fdf8-42cb-9697-61cf84c19a58" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jpql/src/main/java/jpql/MemberType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../core/src/main/java/hello/core/common/MyLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/../core/src/main/java/hello/core/common/MyLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex1-hello-jpa/src/main/java/hellojpa/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ex1-hello-jpa/src/main/java/hellojpa/JpaMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Delivery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Delivery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/domain/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/JpaMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../jpashop/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../jpashop/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jpql/src/main/java/jpql/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jpql/src/main/java/jpql/JpaMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jpql/src/main/java/jpql/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jpql/src/main/java/jpql/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled1/.idea/misc.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +36,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2qJ0JBsiftifJ2nyXzB2yeDhokg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -50,7 +58,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true",
-    "애플리케이션.JpaMain.executor": "Run"
+    "애플리케이션.JpaMain.executor": "Debug"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -97,7 +105,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1734365296482</updated>
-      <workItem from="1734365297534" duration="22743000" />
+      <workItem from="1734365297534" duration="27687000" />
+      <workItem from="1736346995067" duration="3649000" />
     </task>
     <servers />
   </component>
