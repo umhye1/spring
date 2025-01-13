@@ -12,34 +12,76 @@ public class JpaMain {
         tx.begin();
         try {
 
-            Team team = new Team();
-            em.persist(team);
+            Team teamA = new Team();
+            teamA.setName("teamA");
+            em.persist(teamA);
 
-            Member member = new Member();
-            member.setUsername("관리자1");
-            member.setTeam(team);
-            em.persist(member);
+            Team teamB = new Team();
+            teamB.setName("teamB");
+            em.persist(teamB);
+
+            Member member1 = new Member();
+            member1.setUsername("회원1");
+            member1.setTeam(teamA);
+            em.persist(member1);
 
             Member member2 = new Member();
-            member2.setUsername("관리자2");
-            member2.setTeam(team);
+            member2.setUsername("회원2");
+            member2.setTeam(teamA);
             em.persist(member2);
+
+            Member member3 = new Member();
+            member3.setUsername("회원3");
+            member3.setTeam(teamB);
+            em.persist(member3);
 
             em.flush();
             em.clear();
-// 묵시적 inner join
-//            String query = "select m.team From Member m";
-//            List<Team> result = em.createQuery(query, Team.class).getResultList();
 
-//            String query = "select t.members.size From Team t";
-//            Integer result = em.createQuery(query, Integer.class).getSingleResult();
+//            String query = "select m From Member m";
+//            List<Member> result = em.createQuery(query, Member.class).getResultList();
+//
+//            for (Member member : result) {
+//                System.out.println("member = " + member);
+//                //회원 1, 팀A (sql)
+//                //회원 2, 팀A (1차 캐시)
+//                //회원 3, 팀B (sql)
+//
+//                //회원 100명 = 1 + N 문제
+//             }
 
+            // 패치 조인
+            String query = "select m From Member m join fetch m.team";
+            List<Member> result = em.createQuery(query, Member.class).getResultList();
 
-            String query = "select m From t join t.members m";
-            List<Collection> result = em.createQuery(query, Collection.class).getResultList();
+            for (Member member : result) {
+                System.out.println("member = " + member);
+                //패치조인으로 회원과 팀을 함께 조회해서 지연 로딩 x
+            }
 
-            System.out.println("result = " + result);
+            //일대다 관계, 컬랙션 패치 조인 -> 뻥튀기 문제 발생 가능
+            String query2 = "select t From Team t join fetch t.members";
+            List<Team> result2 = em.createQuery(query2, Team.class).getResultList();
 
+            for (Team team : result2) {
+                System.out.println("team = " + team.getName() + "| members = " +team.getMembers().size());
+                for (Member member : team.getMembers()) {
+                    System.out.println("-> member = " + member);
+                }
+            }
+
+            //distinct - 중복 제거
+            String query3 = "select distinct t From Team t join fetch t.members";
+            List<Team> result3 = em.createQuery(query3, Team.class).getResultList();
+
+            for (Team team : result3) {
+                System.out.println("team = " + team.getName() + "| members = " +team.getMembers().size());
+                for (Member member : team.getMembers()) {
+                    System.out.println("-> member = " + member);
+                }
+            }
+
+            
             tx.commit();
         }catch (Exception e){
             tx.rollback();
