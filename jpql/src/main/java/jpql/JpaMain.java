@@ -38,48 +38,11 @@ public class JpaMain {
             em.flush();
             em.clear();
 
-//            String query = "select m From Member m";
-//            List<Member> result = em.createQuery(query, Member.class).getResultList();
-//
-//            for (Member member : result) {
-//                System.out.println("member = " + member);
-//                //회원 1, 팀A (sql)
-//                //회원 2, 팀A (1차 캐시)
-//                //회원 3, 팀B (sql)
-//
-//                //회원 100명 = 1 + N 문제
-//             }
-
-            // 패치 조인
-            String query = "select m From Member m join fetch m.team";
-            List<Member> result = em.createQuery(query, Member.class).getResultList();
-
-            for (Member member : result) {
-                System.out.println("member = " + member);
-                //패치조인으로 회원과 팀을 함께 조회해서 지연 로딩 x
-            }
-
-            //일대다 관계, 컬랙션 패치 조인 -> 뻥튀기 문제 발생 가능
-            String query2 = "select t From Team t join fetch t.members";
-            List<Team> result2 = em.createQuery(query2, Team.class).getResultList();
-
-            for (Team team : result2) {
-                System.out.println("team = " + team.getName() + "| members = " +team.getMembers().size());
-                for (Member member : team.getMembers()) {
-                    System.out.println("-> member = " + member);
-                }
-            }
-
-            //distinct - 중복 제거
-            String query3 = "select distinct t From Team t join fetch t.members";
-            List<Team> result3 = em.createQuery(query3, Team.class).getResultList();
-
-            for (Team team : result3) {
-                System.out.println("team = " + team.getName() + "| members = " +team.getMembers().size());
-                for (Member member : team.getMembers()) {
-                    System.out.println("-> member = " + member);
-                }
-            }
+            String query = "select t From Team t";
+            List<Team> result  = em.createQuery(query, Team.class)
+                    .setFirstResult(0)
+                    .setMaxResults(2)
+                    .getResultList();
 
             
             tx.commit();
