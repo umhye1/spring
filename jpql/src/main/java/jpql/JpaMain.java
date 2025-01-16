@@ -38,34 +38,14 @@ public class JpaMain {
             em.flush();
             em.clear();
 
-            //엔티티를 파라미터로 전달
-            String query = "select m From Member m where m = : member ";
-            Member findMember = em.createQuery(query, Member.class)
-                    .setParameter("member", member1)
-                    .getSingleResult();
+            List<Member> resultList = em.createNamedQuery("Member.findByUsername",Member.class)
+                            .setParameter("username","회원1")
+                            .getResultList();
 
-            System.out.println("findMember = " + findMember);
-
-            //식별자를 직접 전달
-            String query1 = "select m From Member m where m.id = : memberId ";
-            Member findMember1 = em.createQuery(query1, Member.class)
-                    .setParameter("memberId", member1.getId())
-                    .getSingleResult();
-
-            System.out.println("findMember1 = " + findMember1);
-
-            //엔티티 직접사용 - 외래키값
-            String query2 = "select m From Member m where m.team = : team";
-            List<Member> findMember2 = em.createQuery(query2, Member.class)
-                    .setParameter("team",teamA)
-                    .getResultList();
-
-            for (Member member : findMember2) {
+            for (Member member : resultList) {
                 System.out.println("member = " + member);
             }
-
-
-
+            
             tx.commit();
         }catch (Exception e){
             tx.rollback();
